@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script src='https://raw.githubusercontent.com/lampaa/Bezier.js/master/bezier.js'></script>
+		<link class="include" rel="stylesheet" type="text/css" href="http://www.jqplot.com/deploy/dist/jquery.jqplot.min.css" />
+		<script class="include" type="text/javascript" src="http://www.jqplot.com/deploy/dist/jquery.min.js"></script>
+		<script class="include" type="text/javascript" src="http://www.jqplot.com/deploy/dist/jquery.jqplot.min.js"></script>
+		
+		<script>
+		$(document).ready(function(){
+			var coords = [];
+			
+			for(var i=0; i < 50; i++) {
+				coords.push([i, Math.floor(Math.random() * (51))]);
+			}
+
+			var bezi = new Bezier().prepare(coords);
+			var result = bezi.process();
+
+		   $.jqplot("chart", [coords, result], {
+				legend:{show:true},
+				series:[
+					{label:'Default'},
+					{label:'Bezier'}
+				]
+			});
+		});
+		</script>
+	</head>
+	
+	<body>
+		<div id="chart" class='plot' style="margin: 30px auto;width:1000px; height:300px;"></div>
+	</body>
+</html>
+
+
