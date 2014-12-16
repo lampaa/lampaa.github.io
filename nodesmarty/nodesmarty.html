@@ -1,0 +1,29 @@
+<script src='http://nodesmarty.com/styles/scripts/nodesmarty.4.0.js'></script>
+<script>
+	/**
+	 * create nodesmarty app
+	 */
+	var Ns = new NodeSmarty({
+		'templateDir':'/ns/',
+		'compileDir':'/ns/',
+		'cacheDir':'/ns/',
+		'error_handler': function(err_code) {
+			switch(err_code) {
+				case 100:
+				case 200:
+				case 300:
+				case 400:
+					NodeRouter.nav('err.html');
+					break;
+			}
+		}
+	});
+
+	Ns.assign({
+		'template':'include_file.tpl'
+	});
+
+	Ns.fetch('template.tpl', {cache: false}, function(data) {
+		document.write(data);
+	});
+</script>
