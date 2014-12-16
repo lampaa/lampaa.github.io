@@ -8,14 +8,7 @@
 		'compileDir':'/ns/',
 		'cacheDir':'/ns/',
 		'error_handler': function(err_code) {
-			switch(err_code) {
-				case 100:
-				case 200:
-				case 300:
-				case 400:
-					NodeRouter.nav('err.html');
-					break;
-			}
+			console.log("err: " + err_code);
 		}
 	});
 
