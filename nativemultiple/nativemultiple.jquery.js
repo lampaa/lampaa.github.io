@@ -99,7 +99,7 @@
 					touch_down = false;
 					last_first = this.value;
 					//event
-					options.onChange('onchange', this.value, $clone_input.val());
+					options.onChange(this.value, $clone_input.val());
 				});
 				
 				// input 2
